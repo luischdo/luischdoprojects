@@ -13,12 +13,16 @@ if [[ $fileguess -eq $filecount ]]
     then
         echo "You are right :) Thanks for playing!"
     else
-        echo "You are wrong :( Please try again (type a number)."
-        read fileguess2
-        while [[ $fileguess2 -ne $filecount ]]
+        while [[ $fileguess -ne $filecount ]]
             do 
-              echo "You are wrong :( Please try again (type a number)."
-              read fileguess2
+              if [[ $fileguess  -gt $filecount ]]
+                  then 
+                     echo "Your guess is too high :( Please try again (type a number)."
+              read fileguess
+              else
+                     echo "Your guess is too low :( Please try again (type a number)."
+              read fileguess 
+              fi
             done
         echo "You are right :) Thanks for playing!"
 fi
